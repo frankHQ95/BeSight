@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be.Sight | Promotoría Seguros Monterrey · Guadalajara</title>
+  <meta name="description" content="Únete a Be.Sight, la promotoría de Seguros Monterrey New York Life en Guadalajara. Crece económicamente sin sacrificar lo que más importa. Inspira, forma y acompaña tu carrera de asesor.">
+  <meta name="keywords" content="asesor seguros guadalajara, promotoría seguros monterrey, empleo seguros jalisco, carrera seguros, be sight">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/brand/besight%20vertical%20positivo.png">
+  <link rel="apple-touch-icon" href="assets/brand/besight%20vertical%20positivo.png">
+  <meta name="theme-color" content="#5BBF5B">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ================================================
+       VARIABLES & RESET
+    ================================================ */
+    :root {
+      --green:        #5BBF5B;
+      --green-dark:   #469A46;
+      --green-light:  #EBF7EB;
+      --green-glow:   rgba(91, 191, 91, 0.35);
+      --dark:         #111111;
+      --dark-2:       #1C1C1C;
+      --dark-3:       #252525;
+      --gray:         #6B7280;
+      --gray-lt:      #F4F5F7;
+      --white:        #FFFFFF;
+      --font:         'Poppins', sans-serif;
+      --r:            16px;
+      --ease:         cubic-bezier(.4,0,.2,1);
+      --t:            all .3s var(--ease);
+      --shadow:       0 4px 24px rgba(0,0,0,.10);
+      --shadow-lg:    0 12px 48px rgba(0,0,0,.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font);
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+    img  { max-width: 100%; height: auto; display: block; }
+    a    { text-decoration: none; color: inherit; }
+    ul   { list-style: none; }
+    button { font-family: var(--font); }
+
+    /* ================================================
+       UTILITIES
+    ================================================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    .section   { padding: 100px 0; }
+    .section-sm{ padding: 64px 0; }
+
+    .tag {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .tag-dark {
+      background: rgba(78,198,84,.15);
+      color: var(--green);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 580px;
+      margin-bottom: 52px;
+      line-height: 1.75;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 34px;
+      border-radius: 100px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--t);
+      border: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px var(--green-glow);
+    }
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,.45);
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,.1);
+      border-color: var(--white);
+    }
+    .btn-ghost-dark {
+      background: var(--dark);
+      color: var(--white);
+    }
+    .btn-ghost-dark:hover {
+      background: var(--dark-3);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================================================
+       NAVBAR
+    ================================================ */
+    #nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 900;
+      padding: 22px 0;
+      transition: var(--t);
+    }
+    #nav.scrolled {
+      background: rgba(17,17,17,.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 13px 0;
+      box-shadow: 0 2px 28px rgba(0,0,0,.35);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .nav-logo .bs-icon { height: 40px; width: auto; flex-shrink: 0; }
+    .bs-wordmark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .bs-wordmark strong {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.5px;
+    }
+    .bs-wordmark strong em { color: var(--green); font-style: normal; }
+    .bs-tagline {
+      font-size: 9px;
+      color: var(--green);
+      font-weight: 500;
+      letter-spacing: .4px;
+      margin-top: 2px;
+    }
+    /* Footer logo larger */
+    .footer-logo .bs-icon { height: 52px; }
+    .footer-logo .bs-wordmark strong { font-size: 24px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.75);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: var(--t);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    #mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(17,17,17,.98);
+      z-index: 800;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    #mobile-nav.open { display: flex; }
+    #mobile-nav a {
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: color .2s;
+    }
+    #mobile-nav a:hover { color: var(--green); }
+
+    /* ================================================
+       HERO
+    ================================================ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1800&q=80') center / cover no-repeat;
+      opacity: .22;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(17,17,17,.97) 0%, rgba(17,17,17,.60) 60%, rgba(78,198,84,.08) 100%);
+    }
+
+    /* Floating blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: .06;
+      filter: blur(2px);
+      animation: floatBlob 8s ease-in-out infinite;
+    }
+    .blob-1 { width: 520px; height: 520px; top: -160px; right: -120px; }
+    .blob-2 { width: 260px; height: 260px; bottom: 80px; right: 18%; animation-delay: 3s; }
+    .blob-3 { width: 120px; height: 120px; top: 42%; left: 58%; animation-delay: 6s; }
+    @keyframes floatBlob {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-28px) scale(1.04); }
+    }
+
+    .hero-body {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(78,198,84,.12);
+      border: 1px solid rgba(78,198,84,.28);
+      color: var(--green);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 30px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .4; transform: scale(1.6); }
+    }
+
+    .hero-h1 {
+      font-size: clamp(3rem, 6.5vw, 5.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.04;
+      margin-bottom: 26px;
+      letter-spacing: -1.5px;
+    }
+    .hero-h1 .accent { color: var(--green); display: block; }
+
+    .hero-p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,.68);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 44px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,.3);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .hero-scroll-hint .chevron {
+      width: 20px; height: 20px;
+      border-right: 2px solid rgba(255,255,255,.28);
+      border-bottom: 2px solid rgba(255,255,255,.28);
+      transform: rotate(45deg);
+      animation: bounce 2.2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50%       { transform: rotate(45deg) translateY(7px); }
+    }
+
+    /* ================================================
+       STATS BAR
+    ================================================ */
+    #stats {
+      background: var(--green);
+      padding: 60px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-cell {
+      text-align: center;
+      padding: 20px 12px;
+      position: relative;
+    }
+    .stat-cell:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 18%; bottom: 18%;
+      width: 1px;
+      background: rgba(255,255,255,.32);
+    }
+    .stat-num {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: .88rem;
+      color: rgba(255,255,255,.85);
+      font-weight: 500;
+    }
+
+    /* ================================================
+       ABOUT
+    ================================================ */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 88px;
+      align-items: center;
+    }
+    .about-visual { position: relative; }
+    .about-img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      background: white;
+      border-radius: 14px;
+      padding: 16px 22px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .about-badge .b-icon {
+      width: 48px; height: 48px;
+      background: var(--green);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 22px;
+      flex-shrink: 0;
+    }
+    .about-badge strong { display: block; font-size: 17px; font-weight: 800; }
+    .about-badge span   { font-size: 12px; color: var(--gray); }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 42px;
+    }
+    .value-card {
+      background: var(--gray-lt);
+      border-radius: 14px;
+      padding: 22px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: var(--t);
+    }
+    .value-card:hover {
+      background: var(--green-light);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .v-icon {
+      width: 42px; height: 42px;
+      background: var(--green);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 17px;
+      flex-shrink: 0;
+    }
+    .value-card h4 { font-size: .9rem; font-weight: 700; margin-bottom: 3px; }
+    .value-card p  { font-size: .8rem; color: var(--gray); }
+
+    /* ================================================
+       BENEFITS
+    ================================================ */
+    #benefits { background: var(--dark); }
+    .benefits-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 60px;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .benefit-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--r);
+      padding: 38px 30px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--t);
+    }
+    .benefit-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s var(--ease);
+    }
+    .benefit-card:hover {
+      border-color: rgba(78,198,84,.18);
+      transform: translateY(-7px);
+      box-shadow: 0 16px 48px rgba(78,198,84,.08);
+    }
+    .benefit-card:hover::after { transform: scaleX(1); }
+    .b-icon-wrap {
+      width: 58px; height: 58px;
+      background: rgba(78,198,84,.13);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 25px;
+      color: var(--green);
+      margin-bottom: 26px;
+    }
+    .benefit-card h3 { font-size: 1.05rem; font-weight: 700; color: white; margin-bottom: 12px; }
+    .benefit-card p  { font-size: .875rem; color: rgba(255,255,255,.55); line-height: 1.75; }
+
+    /* ================================================
+       PROCESS
+    ================================================ */
+    #process { background: var(--gray-lt); }
+    .process-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 72px;
+    }
+    .process-header .section-sub { margin: 0 auto; }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green) 0%, rgba(78,198,84,.15) 100%);
+      transform: translateX(-50%);
+    }
+    .t-step {
+      display: grid;
+      grid-template-columns: 1fr 68px 1fr;
+      align-items: center;
+      margin-bottom: 52px;
+    }
+    .t-step:last-child { margin-bottom: 0; }
+
+    .t-content { padding: 0 36px; }
+    .t-content h3 { font-size: 1rem; font-weight: 700; margin-bottom: 7px; color: var(--dark); }
+    .t-content p  { font-size: .855rem; color: var(--gray); line-height: 1.7; }
+
+    .t-step:nth-child(odd)  .t-content { text-align: right; }
+    .t-step:nth-child(even) .t-content { order: 3; text-align: left; }
+    .t-step:nth-child(even) .t-empty   { order: 1; }
+
+    .t-node {
+      width: 58px; height: 58px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 0 8px var(--gray-lt);
+    }
+    .t-node.final {
+      background: var(--dark);
+      box-shadow: 0 0 0 8px var(--gray-lt), 0 0 0 16px rgba(78,198,84,.2);
+    }
+
+    /* ================================================
+       GALLERY / CULTURE
+    ================================================ */
+    #culture { background: var(--white); }
+    .culture-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 56px;
+    }
+    .culture-header .section-sub { margin: 0 auto; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 300px;
+      gap: 14px;
+    }
+    .g-item {
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .g-item.tall { grid-row: span 2; }
+    .g-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s var(--ease);
+    }
+    .g-item:hover img { transform: scale(1.07); }
+    .g-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17,17,17,.75) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity .3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 22px;
+    }
+    .g-item:hover .g-overlay { opacity: 1; }
+    .g-overlay span { color: white; font-weight: 600; font-size: 14px; }
+
+    /* ================================================
+       TESTIMONIALS
+    ================================================ */
+    #testimonials { background: var(--dark); }
+    .testimonials-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .testi-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--r);
+      padding: 38px 32px;
+      transition: var(--t);
+      position: relative;
+    }
+    .testi-card:hover {
+      border-color: rgba(78,198,84,.2);
+      transform: translateY(-5px);
+    }
+    .stars { display: flex; gap: 4px; margin-bottom: 18px; }
+    .stars i { color: #FBC02D; font-size: 13px; }
+    .big-quote { color: var(--green); font-size: 48px; font-family: Georgia, serif; line-height: 1; margin-bottom: 18px; }
+    .testi-text {
+      font-size: .9rem;
+      color: rgba(255,255,255,.68);
+      line-height: 1.85;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .t-avatar {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: 2.5px solid var(--green);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .t-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .t-info strong { display: block; font-size: 14px; font-weight: 700; color: white; }
+    .t-info span   { font-size: 11.5px; color: var(--green); }
+
+    /* ================================================
+       INSTAGRAM STRIP
+    ================================================ */
+    #instagram { background: var(--gray-lt); text-align: center; }
+    .ig-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .ig-item { position: relative; aspect-ratio: 1; overflow: hidden; }
+    .ig-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s var(--ease), filter .4s;
+      filter: brightness(.88);
+    }
+    .ig-item:hover img { transform: scale(1.1); filter: brightness(1); }
+    .ig-cap {
+      position: absolute;
+      inset: 0;
+      background: rgba(78,198,84,.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .ig-item:hover .ig-cap { opacity: 1; }
+    .ig-cap i { color: white; font-size: 22px; }
+
+    /* ================================================
+       CONTACT
+    ================================================ */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.55fr;
+      gap: 88px;
+      align-items: start;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+    .cd-icon {
+      width: 50px; height: 50px;
+      background: var(--green-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-dark);
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+    .cd-text strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+    .cd-text a, .cd-text span {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    .cd-text a:hover { color: var(--green-dark); }
+
+    .socials-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .soc-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--gray-lt);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--dark);
+      font-size: 16px;
+      transition: var(--t);
+    }
+    .soc-btn:hover {
+      background: var(--green);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Form */
+    .contact-form {
+      background: var(--gray-lt);
+      border-radius: 22px;
+      padding: 44px 40px;
+    }
+    .form-heading { font-size: 1.25rem; font-weight: 700; margin-bottom: 6px; }
+    .form-sub     { font-size: .85rem; color: var(--gray); margin-bottom: 30px; }
+    .form-2col    { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group   { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--gray);
+      margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2px solid transparent;
+      background: white;
+      border-radius: 10px;
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--dark);
+      transition: var(--t);
+      outline: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(78,198,84,.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 96px; }
+    .form-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      transition: var(--t);
+      margin-top: 6px;
+    }
+    .form-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px var(--green-glow);
+    }
+
+    /* ================================================
+       FOOTER
+    ================================================ */
+    #footer {
+      background: var(--dark);
+      color: white;
+      padding: 72px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 52px;
+      margin-bottom: 56px;
+    }
+    .footer-about p {
+      font-size: .855rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.85;
+      margin: 18px 0 26px;
+      max-width: 290px;
+    }
+    .footer-col h5 {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 22px;
+    }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: .875rem;
+      color: rgba(255,255,255,.6);
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--green); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 12.5px; color: rgba(255,255,255,.28); }
+    .footer-bottom a { color: var(--green); }
+
+    /* ================================================
+       WHATSAPP FLOAT
+    ================================================ */
+    .wa-float {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      width: 58px; height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 6px 24px rgba(37,211,102,.55);
+      z-index: 999;
+      transition: var(--t);
+    }
+    .wa-float:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 36px rgba(37,211,102,.7);
+    }
+
+    /* ================================================
+       RESPONSIVE
+    ================================================ */
+    @media (max-width: 1024px) {
+      .about-grid         { grid-template-columns: 1fr; gap: 48px; }
+      .about-img          { height: 380px; }
+      .benefits-grid      { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid  { grid-template-columns: 1fr 1fr; }
+      .footer-grid        { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .stats-grid         { grid-template-columns: repeat(2,1fr); }
+      .stat-cell:nth-child(2)::after { display: none; }
+      .ig-strip           { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 768px) {
+      .section            { padding: 72px 0; }
+      .nav-links, .nav-right .btn { display: none; }
+      .hamburger          { display: flex; }
+      .hero-h1            { font-size: 2.5rem; letter-spacing: -.5px; }
+      .hero-ctas          { flex-direction: column; }
+      .hero-ctas .btn     { width: 100%; justify-content: center; }
+      .benefits-grid      { grid-template-columns: 1fr; }
+      .testimonials-grid  { grid-template-columns: 1fr; }
+      .gallery-grid       { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; }
+      .g-item.tall        { grid-row: auto; }
+      .contact-grid       { grid-template-columns: 1fr; gap: 48px; }
+      .form-2col          { grid-template-columns: 1fr; }
+      .timeline::before   { left: 29px; }
+      .t-step             { grid-template-columns: 58px 1fr; }
+      .t-step:nth-child(odd)  .t-content { text-align: left; }
+      .t-step:nth-child(even) .t-content { order: 2; text-align: left; }
+      .t-step:nth-child(even) .t-empty   { display: none; }
+      .t-empty            { display: none; }
+      .t-node             { margin: 0; }
+      .contact-form       { padding: 30px 22px; }
+      .ig-strip           { grid-template-columns: repeat(3,1fr); }
+      .footer-grid        { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 480px) {
+      .stats-grid         { grid-template-columns: 1fr 1fr; }
+      .stat-cell::after   { display: none !important; }
+      .values-grid        { grid-template-columns: 1fr; }
+      .gallery-grid       { grid-template-columns: 1fr; }
+      .ig-strip           { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <!-- Logo SVG Be.Sight - hoja con ojo interior -->
+        <svg class="bs-icon" viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg" aria-label="Be.Sight logo">
+          <path d="M28 2C15 14 3 29 3 47C3 62 13 73 28 73C43 73 53 62 53 47C53 29 41 14 28 2Z" fill="#5BBF5B"/>
+          <rect x="23.5" y="71" width="9" height="11" rx="4.5" fill="#5BBF5B"/>
+          <path d="M37,43 A10.5,10.5 0 1,1 19,43" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <circle cx="31" cy="57" r="4.2" fill="white"/>
+        </svg>
+        <div class="bs-wordmark">
+          <strong>be<em>.sight</em></strong>
+          <span class="bs-tagline">Planear · Asegurar · Vivir</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#about">Nosotros</a>
+        <a href="#benefits">Oportunidades</a>
+        <a href="#process">Proceso</a>
+        <a href="#culture">Equipo</a>
+        <a href="#testimonials">Testimonios</a>
+      </div>
+      <div class="nav-right">
+        <a href="#contact" class="btn btn-primary" style="padding:11px 26px;">Quiero unirme</a>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav">
+  <!-- Logo en el drawer móvil -->
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+    <svg style="height:44px;width:auto;" viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M28 2C15 14 3 29 3 47C3 62 13 73 28 73C43 73 53 62 53 47C53 29 41 14 28 2Z" fill="#5BBF5B"/>
+      <rect x="23.5" y="71" width="9" height="11" rx="4.5" fill="#5BBF5B"/>
+      <path d="M37,43 A10.5,10.5 0 1,1 19,43" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <circle cx="31" cy="57" r="4.2" fill="white"/>
+    </svg>
+    <div style="display:flex;flex-direction:column;line-height:1;">
+      <span style="font-size:22px;font-weight:800;color:white;letter-spacing:-.5px;">be<span style="color:#5BBF5B;">.sight</span></span>
+      <span style="font-size:10px;color:#5BBF5B;font-weight:500;margin-top:3px;">Planear · Asegurar · Vivir</span>
+    </div>
+  </div>
+  <a href="#about"         class="mob-link">Nosotros</a>
+  <a href="#benefits"      class="mob-link">Oportunidades</a>
+  <a href="#process"       class="mob-link">Proceso</a>
+  <a href="#culture"       class="mob-link">Equipo</a>
+  <a href="#testimonials"  class="mob-link">Testimonios</a>
+  <a href="#contact" class="btn btn-primary mob-link">Quiero unirme</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-overlay"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="container">
+    <div class="hero-body">
+      <div class="hero-badge">Promotoría Seguros Monterrey New York Life · Guadalajara</div>
+      <h1 class="hero-h1">
+        Tu carrera,<br>sin límites.
+        <span class="accent">Tu vida, con propósito.</span>
+      </h1>
+      <p class="hero-p">
+        En Be.Sight inspiramos, formamos y acompañamos a asesores que quieren crecer económicamente sin sacrificar lo que más les importa: su familia y su libertad.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary" style="font-size:16px; padding:16px 44px;">
+          <i class="fa-solid fa-rocket"></i>&nbsp;Emprende hoy
+        </a>
+        <a href="#process" class="btn btn-outline-white" style="font-size:16px; padding:16px 44px;">
+          Conoce el proceso
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="chevron"></div>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-cell reveal">
+        <div class="stat-num" data-target="10000">0</div>
+        <div class="stat-label">Clientes satisfechos</div>
+      </div>
+      <div class="stat-cell reveal" style="transition-delay:.1s">
+        <div class="stat-num" data-target="15000">0</div>
+        <div class="stat-label">Asesorías realizadas</div>
+      </div>
+      <div class="stat-cell reveal" style="transition-delay:.2s">
+        <div class="stat-num" data-target="20" data-suffix="+">0</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div class="stat-cell reveal" style="transition-delay:.3s">
+        <div class="stat-num" data-target="8000">0</div>
+        <div class="stat-label">Familias protegidas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-visual reveal">
+        <img
+          src="assets/team/Ely.JPG"
+          alt="Ely — Directora Be.Sight"
+          class="about-img"
+          style="object-position: center top;"
+        >
+        <div class="about-badge">
+          <!-- Logo icon SVG en el badge -->
+          <svg style="height:46px;width:auto;flex-shrink:0;" viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M28 2C15 14 3 29 3 47C3 62 13 73 28 73C43 73 53 62 53 47C53 29 41 14 28 2Z" fill="#5BBF5B"/>
+            <rect x="23.5" y="71" width="9" height="11" rx="4.5" fill="#5BBF5B"/>
+            <path d="M37,43 A10.5,10.5 0 1,1 19,43" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <circle cx="31" cy="57" r="4.2" fill="white"/>
+          </svg>
+          <div>
+            <strong>Seguros Monterrey</strong>
+            <span>New York Life · Socio oficial</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.2s">
+        <span class="tag">Una marca con causa</span>
+        <h2 class="section-title">Inspiramos líderes que protegen el futuro</h2>
+        <p class="section-sub" style="margin-bottom:20px;">
+          Be.Sight es más que una promotoría. Somos una comunidad de asesores apasionados por transformar vidas desde Guadalajara, respaldados por una de las aseguradoras más sólidas de México.
+        </p>
+        <p style="color:var(--gray); font-size:.95rem; line-height:1.85; margin-bottom:40px;">
+          Creemos que la mejor carrera es la que te permite crecer económicamente mientras construyes relaciones de confianza que duran generaciones. Aquí no solo vendes seguros — construyes un legado.
+        </p>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="v-icon"><i class="fa-solid fa-handshake"></i></div>
+            <div><h4>Compromiso</h4><p>Con cada asesor y cada familia que protegemos</p></div>
+          </div>
+          <div class="value-card">
+            <div class="v-icon"><i class="fa-solid fa-users"></i></div>
+            <div><h4>Colaboración</h4><p>Crecemos juntos, nunca solos</p></div>
+          </div>
+          <div class="value-card">
+            <div class="v-icon"><i class="fa-solid fa-eye"></i></div>
+            <div><h4>Visión</h4><p>Miramos más allá del resultado inmediato</p></div>
+          </div>
+          <div class="value-card">
+            <div class="v-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <div><h4>Entrega</h4><p>El 100% en cada asesoría, en cada resultado</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== BENEFITS ========== -->
+<section id="benefits" class="section">
+  <div class="container">
+    <div class="benefits-header reveal">
+      <span class="tag tag-dark">¿Por qué Be.Sight?</span>
+      <h2 class="section-title" style="color:white;">Lo que ganas cuando te unes</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.55); margin:0 auto;">
+        Beneficios reales para asesores reales. Sin letra chica.
+      </p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="b-icon-wrap"><i class="fa-solid fa-infinity"></i></div>
+        <h3>Ingresos sin techo</h3>
+        <p>Tus comisiones crecen con tu portafolio. No existe un límite de ganancias — tú decides cuánto quieres ganar cada mes.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.1s">
+        <div class="b-icon-wrap"><i class="fa-solid fa-calendar-check"></i></div>
+        <h3>Horarios flexibles</h3>
+        <p>Diseña tu semana a tu medida. Be.Sight te enseña a ser productivo sin sacrificar tu vida personal o familiar.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.2s">
+        <div class="b-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>Formación continua</h3>
+        <p>Capacitación presencial, digital y en campo. Aprenderás de los mejores en el sector desde tu primer día.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.3s">
+        <div class="b-icon-wrap"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+        <h3>Acompañamiento real</h3>
+        <p>Mentoría personalizada de tu supervisor. No te dejamos solo: caminamos contigo en cada etapa de tu carrera.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.4s">
+        <div class="b-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Plan de carrera claro</h3>
+        <p>De asesor a supervisor y más allá. Tenemos un camino estructurado para que crezcas dentro de Be.Sight a tu propio ritmo.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.5s">
+        <div class="b-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Respaldo de marca</h3>
+        <p>Llevas el nombre de Seguros Monterrey New York Life, una de las aseguradoras más reconocidas y confiables de México.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section id="process" class="section">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="tag">Tu camino al éxito</span>
+      <h2 class="section-title">¿Cómo unirte a Be.Sight?</h2>
+      <p class="section-sub">Un proceso claro, transparente y diseñado para que tomes la mejor decisión de tu carrera.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="t-step reveal">
+        <div class="t-content">
+          <h3>Aplica</h3>
+          <p>Llena el formulario o escríbenos por WhatsApp. Cuéntanos un poco sobre ti y tus metas.</p>
+        </div>
+        <div class="t-node">1</div>
+        <div class="t-empty"></div>
+      </div>
+
+      <div class="t-step reveal">
+        <div class="t-empty"></div>
+        <div class="t-node">2</div>
+        <div class="t-content">
+          <h3>Primera Entrevista</h3>
+          <p>Una conversación sin presión para conocerte y presentarte la oportunidad en detalle.</p>
+        </div>
+      </div>
+
+      <div class="t-step reveal">
+        <div class="t-content">
+          <h3>Segunda Entrevista</h3>
+          <p>Profundizamos en el modelo de negocio, proyección de ingresos y cómo Be.Sight acelera tu crecimiento.</p>
+        </div>
+        <div class="t-node">3</div>
+        <div class="t-empty"></div>
+      </div>
+
+      <div class="t-step reveal">
+        <div class="t-empty"></div>
+        <div class="t-node">4</div>
+        <div class="t-content">
+          <h3>Capacitación e Inducción</h3>
+          <p>Formación intensiva: productos, técnicas de asesoría y las bases del sector asegurador.</p>
+        </div>
+      </div>
+
+      <div class="t-step reveal">
+        <div class="t-content">
+          <h3>Acompañamiento en Campo</h3>
+          <p>Salimos juntos a tus primeras citas. Tu mentor está contigo para guiarte y darte retroalimentación real.</p>
+        </div>
+        <div class="t-node">5</div>
+        <div class="t-empty"></div>
+      </div>
+
+      <div class="t-step reveal">
+        <div class="t-empty"></div>
+        <div class="t-node">6</div>
+        <div class="t-content">
+          <h3>Desarrollo Continuo</h3>
+          <p>Sesiones semanales, metas personalizadas y un plan de carrera para que nunca dejes de crecer.</p>
+        </div>
+      </div>
+
+      <div class="t-step reveal">
+        <div class="t-content">
+          <h3>¡Construye tu legado!</h3>
+          <p>Ya eres parte de Be.Sight. Bienvenido al equipo que está cambiando el futuro de familias en México.</p>
+        </div>
+        <div class="t-node final"><i class="fa-solid fa-star"></i></div>
+        <div class="t-empty"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CULTURE / GALLERY ========== -->
+<section id="culture" class="section">
+  <div class="container">
+    <div class="culture-header reveal">
+      <span class="tag">Nuestra cultura</span>
+      <h2 class="section-title">El equipo detrás de Be.Sight</h2>
+      <p class="section-sub">Personas reales, resultados reales. Síguenos en
+        <a href="https://www.instagram.com/besightsefuvision" target="_blank" rel="noopener" style="color:var(--green-dark); font-weight:600;">@besightsefuvision</a>
+      </p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-item tall">
+        <img src="assets/team/IMG_7826.JPG" alt="Equipo Be.Sight" style="object-position: center top;">
+        <div class="g-overlay"><span>Nuestro equipo</span></div>
+      </div>
+      <div class="g-item">
+        <img src="assets/team/IMG_7530.JPG" alt="Equipo Be.Sight" style="object-position: center top;">
+        <div class="g-overlay"><span>Nuestro equipo</span></div>
+      </div>
+      <div class="g-item">
+        <img src="assets/team/IMG_7620.JPG" alt="Asesor Be.Sight" style="object-position: center top;">
+        <div class="g-overlay"><span>Asesores</span></div>
+      </div>
+      <div class="g-item">
+        <img src="assets/team/Lucy.JPG" alt="Lucy — Asesora Be.Sight" style="object-position: center top;">
+        <div class="g-overlay"><span>Asesora</span></div>
+      </div>
+      <div class="g-item">
+        <img src="assets/team/Margot.JPG" alt="Margot — Asesora Be.Sight" style="object-position: center top;">
+        <div class="g-overlay"><span>Asesora</span></div>
+      </div>
+      <div class="g-item">
+        <img src="assets/team/Mariana.JPG" alt="Mariana — Asesora Be.Sight" style="object-position: center top;">
+        <div class="g-overlay"><span>Asesora</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <span class="tag tag-dark">Historias reales</span>
+      <h2 class="section-title" style="color:white;">Lo que dicen nuestros asesores</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.5); margin:0 auto;">
+        El mejor indicador de Be.Sight somos quienes ya dieron el salto.
+      </p>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testi-card reveal">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="big-quote">"</div>
+        <p class="testi-text">
+          Llegué sin experiencia en seguros y con miedo al cambio. Dos años después soy supervisora de zona y mis ingresos triplicaron lo que ganaba antes. Be.Sight me dio las herramientas, pero sobre todo la confianza para creer en mí misma.
+        </p>
+        <div class="testi-author">
+          <div class="t-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Sofía González">
+          </div>
+          <div class="t-info">
+            <strong>Sofía González</strong>
+            <span>Supervisora de Zona · 2 años en Be.Sight</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.15s">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="big-quote">"</div>
+        <p class="testi-text">
+          Venía del mundo corporativo buscando independencia real. En Be.Sight encontré un modelo donde tú controlas tu agenda y tus resultados. En el primer año ya superé lo que ganaba en 10 años de oficina.
+        </p>
+        <div class="testi-author">
+          <div class="t-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Carlos Ramírez">
+          </div>
+          <div class="t-info">
+            <strong>Carlos Ramírez</strong>
+            <span>Asesor Senior · 3 años en Be.Sight</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.3s">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="big-quote">"</div>
+        <p class="testi-text">
+          Lo que más valoro es que nunca estás sola. Desde el primer día tienes mentor, equipo y un plan concreto. El acompañamiento de Be.Sight es real, no solo en papel. Aquí construyes carrera y amistades para toda la vida.
+        </p>
+        <div class="testi-author">
+          <div class="t-avatar">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Valeria Mendoza">
+          </div>
+          <div class="t-info">
+            <strong>Valeria Mendoza</strong>
+            <span>Asesora Patrimonial · 18 meses en Be.Sight</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== INSTAGRAM STRIP ========== -->
+<section id="instagram" class="section-sm">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px;">
+      <span class="tag">Síguenos</span>
+      <h2 class="section-title">@besightsefuvision</h2>
+      <p class="section-sub" style="margin-bottom:0;">Eventos, tips de carrera y la vida real de nuestros asesores en Instagram.</p>
+    </div>
+    <div class="ig-strip reveal">
+      <div class="ig-item"><img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=400&q=80" alt=""><div class="ig-cap"><i class="fa-brands fa-instagram"></i></div></div>
+      <div class="ig-item"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&q=80" alt=""><div class="ig-cap"><i class="fa-brands fa-instagram"></i></div></div>
+      <div class="ig-item"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80" alt=""><div class="ig-cap"><i class="fa-brands fa-instagram"></i></div></div>
+      <div class="ig-item"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt=""><div class="ig-cap"><i class="fa-brands fa-instagram"></i></div></div>
+      <div class="ig-item"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80" alt=""><div class="ig-cap"><i class="fa-brands fa-instagram"></i></div></div>
+      <div class="ig-item"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&q=80" alt=""><div class="ig-cap"><i class="fa-brands fa-instagram"></i></div></div>
+    </div>
+    <a href="https://www.instagram.com/besightsefuvision" target="_blank" rel="noopener" class="btn btn-ghost-dark">
+      <i class="fa-brands fa-instagram"></i>&nbsp;Ver perfil completo
+    </a>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <span class="tag">¿Listo para el siguiente paso?</span>
+        <h2 class="section-title">Hablemos sobre<br>tu futuro</h2>
+        <p style="color:var(--gray); font-size:.95rem; line-height:1.85; margin-bottom:38px;">
+          Sin presión, sin compromisos. Una conversación para conocer la oportunidad Be.Sight y decidir con información completa.
+        </p>
+        <div class="contact-detail">
+          <div class="cd-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="cd-text">
+            <strong>Teléfono</strong>
+            <a href="tel:3314174968">33 1417 4968</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="cd-text">
+            <strong>Correo</strong>
+            <a href="mailto:contacto@besight.mx">contacto@besight.mx</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="cd-text">
+            <strong>Oficina</strong>
+            <span>Av. de las Américas 1500<br>Country Club, 44610 Guadalajara, Jal.</span>
+          </div>
+        </div>
+        <div class="socials-row">
+          <a href="https://www.instagram.com/besightsefuvision" target="_blank" rel="noopener" class="soc-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/besight" target="_blank" rel="noopener" class="soc-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@besightsefuvision" target="_blank" rel="noopener" class="soc-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://wa.me/523314174968?text=Hola%20Be.Sight%2C%20me%20interesa%20la%20oportunidad%20como%20asesor." target="_blank" rel="noopener" class="soc-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal" style="transition-delay:.2s">
+        <h3 class="form-heading">Quiero ser asesor Be.Sight</h3>
+        <p class="form-sub">Te contactamos en menos de 24 horas.</p>
+        <div class="form-2col">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label>Apellido</label>
+            <input type="text" placeholder="Tu apellido">
+          </div>
+        </div>
+        <div class="form-2col">
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="33 #### ####">
+          </div>
+          <div class="form-group">
+            <label>Correo</label>
+            <input type="email" placeholder="tu@correo.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>¿Cuál es tu situación actual?</label>
+          <select>
+            <option value="">Selecciona una opción</option>
+            <option>Busco nuevo empleo o carrera</option>
+            <option>Estoy empleado pero quiero más</option>
+            <option>Recién egresado</option>
+            <option>Emprendedor buscando oportunidad</option>
+            <option>Ya tengo experiencia en seguros</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>¿Por qué te interesa Be.Sight?</label>
+          <textarea placeholder="Cuéntanos brevemente qué te motiva a explorar esta oportunidad…"></textarea>
+        </div>
+        <button type="submit" class="form-btn" id="formBtn">
+          <i class="fa-solid fa-paper-plane"></i>&nbsp;Enviar solicitud
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#hero" class="nav-logo footer-logo" style="margin-bottom:4px;">
+          <svg class="bs-icon" viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M28 2C15 14 3 29 3 47C3 62 13 73 28 73C43 73 53 62 53 47C53 29 41 14 28 2Z" fill="#5BBF5B"/>
+            <rect x="23.5" y="71" width="9" height="11" rx="4.5" fill="#5BBF5B"/>
+            <path d="M37,43 A10.5,10.5 0 1,1 19,43" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <circle cx="31" cy="57" r="4.2" fill="white"/>
+          </svg>
+          <div class="bs-wordmark">
+            <strong>be<em>.sight</em></strong>
+            <span class="bs-tagline">Planear · Asegurar · Vivir</span>
+          </div>
+        </a>
+        <p>Promotoría oficial de Seguros Monterrey New York Life. Inspiramos, formamos y acompañamos a asesores con visión en Guadalajara, Jalisco.</p>
+        <div class="socials-row">
+          <a href="https://www.instagram.com/besightsefuvision" target="_blank" rel="noopener" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/besight" target="_blank" rel="noopener" class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@besightsefuvision" target="_blank" rel="noopener" class="soc-btn"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://wa.me/523314174968" target="_blank" rel="noopener" class="soc-btn"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#benefits">Oportunidades</a></li>
+          <li><a href="#process">Proceso</a></li>
+          <li><a href="#culture">Equipo</a></li>
+          <li><a href="#testimonials">Testimonios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="tel:3314174968">33 1417 4968</a></li>
+          <li><a href="mailto:contacto@besight.mx">contacto@besight.mx</a></li>
+          <li><a href="https://wa.me/523314174968" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Oficina</h5>
+        <ul>
+          <li><a href="#">Av. de las Américas 1500</a></li>
+          <li><a href="#">Country Club</a></li>
+          <li><a href="#">44610 Guadalajara, Jal.</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Be.Sight · Promotoría Seguros Monterrey New York Life. Todos los derechos reservados.</p>
+      <p>Hecho con <span style="color:var(--green);">♥</span> en Guadalajara</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a
+  href="https://wa.me/523314174968?text=Hola%20Be.Sight%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20la%20oportunidad%20como%20asesor."
+  target="_blank" rel="noopener"
+  class="wa-float"
+  title="Escríbenos por WhatsApp"
+  aria-label="WhatsApp"
+>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+  /* --- Navbar scroll --- */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* --- Mobile menu --- */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileNav  = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  /* --- Scroll reveal --- */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* --- Counter animation --- */
+  function runCounter(el) {
+    const target   = parseInt(el.dataset.target);
+    const suffix   = el.dataset.suffix || '';
+    const duration = 1800;
+    const steps    = 60;
+    const increment = target / steps;
+    let current = 0;
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= target) { current = target; clearInterval(interval); }
+      el.textContent = Math.floor(current).toLocaleString('es-MX') + suffix;
+    }, duration / steps);
+  }
+  const statsObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.stat-num').forEach(runCounter);
+        statsObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statsObs.observe(document.getElementById('stats'));
+
+  /* --- Form submit feedback --- */
+  document.getElementById('formBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    this.innerHTML = '<i class="fa-solid fa-check"></i>&nbsp;¡Solicitud enviada!';
+    this.style.background = 'var(--green-dark)';
+    this.disabled = true;
+    setTimeout(() => {
+      this.innerHTML = '<i class="fa-solid fa-paper-plane"></i>&nbsp;Enviar solicitud';
+      this.style.background = '';
+      this.disabled = false;
+    }, 3500);
+  });
+
+  /* --- Active nav link on scroll --- */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--green)'
+        : 'rgba(255,255,255,.75)';
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
