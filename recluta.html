@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Únete a Be.Sight | Asesor de Seguros · Guadalajara</title>
+  <meta name="description" content="Conviértete en asesor de seguros con Be.Sight. Ingresos sin límite, horarios flexibles, formación incluida. Agenda tu entrevista gratuita hoy.">
+  <link rel="icon" type="image/png" href="assets/brand/besight%20vertical%20positivo.png">
+  <meta name="theme-color" content="#5BBF5B">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --green:       #5BBF5B;
+      --green-dark:  #469A46;
+      --green-light: #EBF7EB;
+      --green-glow:  rgba(91,191,91,.35);
+      --dark:        #111111;
+      --dark-2:      #1C1C1C;
+      --dark-3:      #252525;
+      --gray:        #6B7280;
+      --gray-lt:     #F4F5F7;
+      --white:       #FFFFFF;
+      --red:         #EF4444;
+      --font:        'Poppins', sans-serif;
+      --r:           16px;
+      --ease:        cubic-bezier(.4,0,.2,1);
+      --t:           all .3s var(--ease);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font); background: var(--dark); color: var(--white); overflow-x: hidden; line-height: 1.65; }
+    img  { max-width: 100%; height: auto; display: block; }
+    a    { text-decoration: none; color: inherit; }
+    ul   { list-style: none; }
+    button { font-family: var(--font); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s var(--ease), transform .65s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      border-radius: 100px; font-family: var(--font); font-weight: 700;
+      cursor: pointer; transition: var(--t); border: none; white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn-cta {
+      background: var(--green); color: white;
+      font-size: 16px; padding: 17px 46px;
+    }
+    .btn-cta:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px var(--green-glow);
+    }
+    .btn-cta-xl { font-size: 18px; padding: 20px 60px; }
+    .btn-ghost {
+      background: transparent; color: white;
+      border: 2px solid rgba(255,255,255,.32);
+      font-size: 15px; padding: 15px 36px;
+    }
+    .btn-ghost:hover { border-color: white; background: rgba(255,255,255,.07); }
+
+    /* TAGS */
+    .tag-green {
+      display: inline-block;
+      background: rgba(91,191,91,.14); color: var(--green);
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 6px 18px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    /* ===================================
+       URGENCY BAR
+    =================================== */
+    #urgency-bar {
+      background: var(--green);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 13px; font-weight: 600; color: white;
+      letter-spacing: .2px;
+      position: relative; z-index: 100;
+    }
+    #urgency-bar .countdown-inline {
+      font-weight: 800; letter-spacing: 1px;
+    }
+
+    /* ===================================
+       STICKY NAV (minimal)
+    =================================== */
+    #top-bar {
+      position: sticky; top: 0; z-index: 900;
+      padding: 14px 0;
+      background: rgba(17,17,17,.0);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      transition: var(--t);
+    }
+    #top-bar.scrolled {
+      background: rgba(17,17,17,.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.4);
+      padding: 10px 0;
+    }
+    .top-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .top-logo { display: flex; align-items: center; gap: 10px; }
+    .top-logo .bs-icon { height: 36px; width: auto; }
+    .bs-wordmark { display: flex; flex-direction: column; line-height: 1; }
+    .bs-wordmark strong { font-size: 18px; font-weight: 800; color: white; letter-spacing: -.5px; }
+    .bs-wordmark strong em { color: var(--green); font-style: normal; }
+    .bs-tagline { font-size: 9px; color: var(--green); font-weight: 500; letter-spacing: .4px; margin-top: 2px; }
+
+    /* ===================================
+       HERO
+    =================================== */
+    #hero {
+      position: relative;
+      min-height: calc(100vh - 84px);
+      display: flex; align-items: center;
+      background: var(--dark);
+      padding: 80px 0 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1800&q=80') center / cover no-repeat;
+      opacity: .11;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(17,17,17,.98) 0%, rgba(17,17,17,.70) 55%, rgba(91,191,91,.06) 100%);
+    }
+    .blob { position: absolute; border-radius: 50%; background: var(--green); opacity: .055; filter: blur(2px); animation: floatBlob 8s ease-in-out infinite; }
+    .blob-1 { width: 580px; height: 580px; top: -200px; right: -180px; }
+    .blob-2 { width: 280px; height: 280px; bottom: 40px; right: 18%; animation-delay: 3.5s; }
+    @keyframes floatBlob { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-22px) scale(1.04); } }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 860px; margin: 0 auto;
+    }
+    .urgency-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(91,191,91,.3);
+      color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      padding: 7px 18px; border-radius: 100px; margin-bottom: 26px;
+      text-transform: uppercase;
+    }
+    .urgency-pill .dot {
+      width: 7px; height: 7px; background: var(--green); border-radius: 50%;
+      animation: blink 2s infinite; flex-shrink: 0;
+    }
+    @keyframes blink { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .3; transform: scale(1.7); } }
+
+    .hero-h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+      font-weight: 900; color: white; line-height: 1.06;
+      letter-spacing: -1.5px; margin-bottom: 22px;
+    }
+    .hero-h1 .accent { color: var(--green); }
+
+    .hero-sub {
+      font-size: clamp(.97rem, 2vw, 1.18rem);
+      color: rgba(255,255,255,.60); max-width: 620px;
+      margin: 0 auto 40px; line-height: 1.75;
+    }
+
+    .hero-ctas {
+      display: flex; gap: 14px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 48px;
+    }
+
+    .hero-proof {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; color: rgba(255,255,255,.45); font-weight: 500;
+    }
+    .proof-item i { color: var(--green); font-size: 13px; }
+    .proof-item strong { color: rgba(255,255,255,.82); }
+
+    .scroll-hint {
+      position: absolute; bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 7px;
+      color: rgba(255,255,255,.25); font-size: 9px; letter-spacing: 2.5px;
+      text-transform: uppercase; z-index: 2;
+    }
+    .scroll-hint .chevron {
+      width: 17px; height: 17px;
+      border-right: 2px solid rgba(255,255,255,.22);
+      border-bottom: 2px solid rgba(255,255,255,.22);
+      transform: rotate(45deg);
+      animation: bounce 2.4s ease-in-out infinite;
+    }
+    @keyframes bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(6px); } }
+
+    /* ===================================
+       VSL SECTION
+    =================================== */
+    #vsl { background: var(--dark-2); padding: 80px 0; }
+
+    .vsl-header { text-align: center; margin-bottom: 36px; }
+    .vsl-header h2 {
+      font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+      font-weight: 800; color: white; line-height: 1.15; margin-bottom: 10px;
+    }
+    .vsl-header p { color: rgba(255,255,255,.45); font-size: .95rem; }
+
+    .vsl-wrap {
+      position: relative; max-width: 820px; margin: 0 auto;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(91,191,91,.12);
+    }
+    /* Thumbnail state */
+    .vsl-thumb { position: relative; cursor: pointer; aspect-ratio: 16/9; }
+    .vsl-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .vsl-thumb-overlay {
+      position: absolute; inset: 0;
+      background: rgba(17,17,17,.48);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 14px;
+      transition: background .3s;
+    }
+    .vsl-thumb:hover .vsl-thumb-overlay { background: rgba(17,17,17,.35); }
+    .play-btn {
+      width: 86px; height: 86px; background: var(--green); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(91,191,91,.55); transition: var(--t);
+    }
+    .vsl-thumb:hover .play-btn { transform: scale(1.1); box-shadow: 0 14px 44px rgba(91,191,91,.7); }
+    .play-btn i { color: white; font-size: 30px; margin-left: 5px; }
+    .vsl-duration { color: rgba(255,255,255,.7); font-size: 13px; font-weight: 600; }
+    /* Iframe state */
+    .vsl-iframe-wrap { display: none; width: 100%; aspect-ratio: 16/9; }
+    .vsl-iframe-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .vsl-wrap.playing .vsl-thumb { display: none; }
+    .vsl-wrap.playing .vsl-iframe-wrap { display: block; }
+
+    .vsl-cta { text-align: center; margin-top: 40px; }
+    .vsl-cta-note { color: rgba(255,255,255,.38); font-size: 12.5px; margin-top: 12px; }
+
+    /* ===================================
+       FOR WHO
+    =================================== */
+    #for-who { background: var(--dark); padding: 80px 0; }
+    .for-who-header { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .for-who-header h2 {
+      font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+      font-weight: 800; color: white; line-height: 1.1; margin-bottom: 10px;
+    }
+    .for-who-header p { color: rgba(255,255,255,.45); font-size: .95rem; }
+
+    .for-who-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 22px; max-width: 880px; margin: 0 auto;
+    }
+    .fw-card {
+      background: var(--dark-2); border-radius: 18px;
+      padding: 34px 30px;
+    }
+    .fw-card.yes { border: 1px solid rgba(91,191,91,.22); }
+    .fw-card.no  { border: 1px solid rgba(239,68,68,.15); }
+
+    .fw-head {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 22px;
+    }
+    .fw-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; flex-shrink: 0;
+    }
+    .fw-icon.yes { background: rgba(91,191,91,.15); color: var(--green); }
+    .fw-icon.no  { background: rgba(239,68,68,.12); color: var(--red); }
+    .fw-head h3 { font-size: 1rem; font-weight: 700; color: white; }
+
+    .fw-list li {
+      display: flex; align-items: flex-start; gap: 11px;
+      font-size: .875rem; color: rgba(255,255,255,.62);
+      line-height: 1.6; margin-bottom: 11px;
+    }
+    .fw-list li:last-child { margin-bottom: 0; }
+    .fw-list li i { margin-top: 3px; flex-shrink: 0; font-size: 12px; }
+    .fw-list.yes i { color: var(--green); }
+    .fw-list.no  i { color: var(--red); }
+
+    /* ===================================
+       STATS BAR
+    =================================== */
+    #stats { background: var(--green); padding: 60px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-cell {
+      text-align: center; padding: 16px 12px; position: relative;
+    }
+    .stat-cell:not(:last-child)::after {
+      content: ''; position: absolute;
+      right: 0; top: 15%; bottom: 15%;
+      width: 1px; background: rgba(255,255,255,.28);
+    }
+    .stat-num {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900; color: white; line-height: 1; margin-bottom: 6px;
+    }
+    .stat-label { font-size: .84rem; color: rgba(255,255,255,.82); font-weight: 500; }
+
+    /* ===================================
+       BENEFITS
+    =================================== */
+    #benefits { background: var(--dark-2); padding: 88px 0; }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      font-weight: 800; color: white; line-height: 1.1; margin-bottom: 10px;
+    }
+    .section-header p { color: rgba(255,255,255,.45); font-size: .95rem; line-height: 1.75; }
+
+    .benefits-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .benefit-card {
+      background: var(--dark-3); border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--r); padding: 36px 28px;
+      position: relative; overflow: hidden; transition: var(--t);
+    }
+    .benefit-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--green);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .35s var(--ease);
+    }
+    .benefit-card:hover { border-color: rgba(91,191,91,.2); transform: translateY(-7px); box-shadow: 0 16px 48px rgba(91,191,91,.08); }
+    .benefit-card:hover::before { transform: scaleX(1); }
+    .b-icon {
+      width: 54px; height: 54px; background: rgba(91,191,91,.13);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: var(--green); margin-bottom: 22px;
+    }
+    .benefit-card h3 { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 10px; }
+    .benefit-card p  { font-size: .855rem; color: rgba(255,255,255,.50); line-height: 1.75; }
+
+    /* ===================================
+       INCOME POTENTIAL
+    =================================== */
+    #income { background: var(--dark); padding: 80px 0; }
+    .income-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .income-text h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-weight: 800; color: white; line-height: 1.12; margin-bottom: 16px;
+    }
+    .income-text p { color: rgba(255,255,255,.5); font-size: .93rem; line-height: 1.8; margin-bottom: 30px; }
+
+    .income-tiers { display: flex; flex-direction: column; gap: 14px; }
+    .income-tier {
+      background: var(--dark-2); border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px; padding: 18px 22px;
+    }
+    .tier-top {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 14px; margin-bottom: 10px;
+    }
+    .tier-info { display: flex; align-items: center; gap: 12px; }
+    .tier-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex-shrink: 0;
+    }
+    .tier-info h4 { font-size: .88rem; font-weight: 700; color: white; }
+    .tier-info span { font-size: .76rem; color: rgba(255,255,255,.38); display: block; }
+    .tier-amount { font-size: 1.1rem; font-weight: 800; color: var(--green); white-space: nowrap; }
+    .tier-bar { height: 4px; background: rgba(255,255,255,.07); border-radius: 4px; overflow: hidden; }
+    .tier-bar-fill { height: 100%; background: var(--green); border-radius: 4px; width: 0; transition: width 1.4s var(--ease); }
+
+    /* ===================================
+       TESTIMONIALS
+    =================================== */
+    #testimonials { background: var(--dark-2); padding: 88px 0; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testi-card {
+      background: var(--dark-3); border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--r); padding: 32px 26px; transition: var(--t);
+    }
+    .testi-card:hover { border-color: rgba(91,191,91,.2); transform: translateY(-5px); }
+    .stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .stars i { color: #FBC02D; font-size: 12px; }
+    .big-q { color: var(--green); font-size: 42px; font-family: Georgia, serif; line-height: 1; margin-bottom: 12px; }
+    .testi-text { font-size: .865rem; color: rgba(255,255,255,.60); line-height: 1.85; margin-bottom: 22px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .t-avatar { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--green); overflow: hidden; flex-shrink: 0; }
+    .t-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .t-info strong { display: block; font-size: 13px; font-weight: 700; color: white; }
+    .t-info span { font-size: 11px; color: var(--green); }
+
+    /* ===================================
+       PROCESS (3 steps)
+    =================================== */
+    #process { background: var(--dark); padding: 80px 0; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; max-width: 860px; margin: 0 auto;
+      position: relative;
+    }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 38px; left: calc(16.67% + 16px); right: calc(16.67% + 16px);
+      height: 2px;
+      background: linear-gradient(to right, var(--green) 0%, rgba(91,191,91,.25) 100%);
+    }
+    .p-step { text-align: center; padding: 0 22px; }
+    .p-node {
+      width: 76px; height: 76px; background: var(--green); color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; font-weight: 900; margin: 0 auto 22px;
+      position: relative; z-index: 2;
+      box-shadow: 0 0 0 8px var(--dark), 0 0 0 16px rgba(91,191,91,.18);
+    }
+    .p-step h3 { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 8px; }
+    .p-step p { font-size: .845rem; color: rgba(255,255,255,.48); line-height: 1.7; }
+
+    /* ===================================
+       FAQ / OBJECTIONS
+    =================================== */
+    #faq { background: var(--dark-2); padding: 80px 0; }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,.07); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 22px 0; cursor: pointer;
+      font-size: .96rem; font-weight: 600; color: white; transition: color .2s;
+    }
+    .faq-q:hover { color: var(--green); }
+    .faq-q i { color: var(--green); transition: transform .3s; flex-shrink: 0; }
+    .faq-item.open .faq-q i { transform: rotate(180deg); }
+    .faq-a { font-size: .875rem; color: rgba(255,255,255,.52); line-height: 1.8; padding: 0 0 22px; display: none; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ===================================
+       CALENDLY SECTION
+    =================================== */
+    #calendly { background: var(--dark); padding: 88px 0; }
+    .calendly-header { text-align: center; max-width: 720px; margin: 0 auto 44px; }
+    .calendly-header h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900; color: white; line-height: 1.07; margin-bottom: 16px;
+    }
+    .calendly-header h2 .accent { color: var(--green); }
+    .calendly-header p { color: rgba(255,255,255,.50); font-size: 1rem; line-height: 1.75; }
+
+    .calendly-trust {
+      display: flex; align-items: center; justify-content: center;
+      gap: 22px; flex-wrap: wrap; margin-top: 18px; margin-bottom: 40px;
+    }
+    .c-trust {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12.5px; color: rgba(255,255,255,.40); font-weight: 500;
+    }
+    .c-trust i { color: var(--green); }
+
+    .calendly-widget-wrap {
+      max-width: 960px; margin: 0 auto;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(91,191,91,.12), 0 24px 64px rgba(0,0,0,.55);
+      background: white; min-height: 700px;
+    }
+    .calendly-inline-widget { min-width: 320px; height: 700px; }
+
+    /* ===================================
+       FOOTER (minimal)
+    =================================== */
+    #footer {
+      background: var(--dark-2); padding: 36px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo .bs-icon { height: 32px; }
+    .footer-logo .bs-wordmark strong { font-size: 16px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,.27); }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { font-size: 12.5px; color: rgba(255,255,255,.33); transition: color .2s; }
+    .footer-links a:hover { color: var(--green); }
+
+    /* ===================================
+       WHATSAPP FLOAT
+    =================================== */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 24px;
+      width: 54px; height: 54px; background: #25D366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 26px;
+      box-shadow: 0 6px 22px rgba(37,211,102,.55);
+      z-index: 998; transition: var(--t);
+    }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 10px 36px rgba(37,211,102,.7); }
+
+    /* ===================================
+       STICKY MOBILE CTA
+    =================================== */
+    #sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--dark-2); border-top: 1px solid rgba(255,255,255,.09);
+      padding: 12px 18px; z-index: 997;
+      display: none; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .sc-text { font-size: 12.5px; color: rgba(255,255,255,.55); line-height: 1.3; flex: 1; }
+    .sc-text strong { color: white; font-weight: 700; display: block; font-size: 13.5px; }
+    #sticky-cta .btn-cta { font-size: 13px; padding: 11px 22px; flex-shrink: 0; }
+
+    /* ===================================
+       RESPONSIVE
+    =================================== */
+    @media (max-width: 900px) {
+      .for-who-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .income-inner { grid-template-columns: 1fr; gap: 44px; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat-cell:nth-child(2)::after { display: none; }
+      .process-steps::before { display: none; }
+      .process-steps { grid-template-columns: 1fr; gap: 32px; max-width: 440px; }
+    }
+    @media (max-width: 600px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .hero-proof { flex-direction: column; gap: 10px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-cell::after { display: none !important; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+      #sticky-cta { display: flex; }
+      .wa-float { bottom: 86px; }
+      .calendly-trust { gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      #urgency-bar { font-size: 11.5px; }
+      .hero-h1 { letter-spacing: -.8px; }
+      .btn-cta-xl { font-size: 16px; padding: 17px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== URGENCY BAR ========== -->
+<div id="urgency-bar">
+  🔴 &nbsp;Solo quedan <strong>5 cupos disponibles</strong> este mes — cierra: <span class="countdown-inline" id="countdown">--:--:--</span>
+</div>
+
+<!-- ========== STICKY NAV ========== -->
+<header id="top-bar">
+  <div class="container">
+    <div class="top-bar-inner">
+      <a href="#hero" class="top-logo">
+        <svg class="bs-icon" viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg" aria-label="Be.Sight logo">
+          <path d="M28 2C15 14 3 29 3 47C3 62 13 73 28 73C43 73 53 62 53 47C53 29 41 14 28 2Z" fill="#5BBF5B"/>
+          <rect x="23.5" y="71" width="9" height="11" rx="4.5" fill="#5BBF5B"/>
+          <path d="M37,43 A10.5,10.5 0 1,1 19,43" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <circle cx="31" cy="57" r="4.2" fill="white"/>
+        </svg>
+        <div class="bs-wordmark">
+          <strong>be<em>.sight</em></strong>
+          <span class="bs-tagline">Planear · Asegurar · Vivir</span>
+        </div>
+      </a>
+      <a href="#calendly" class="btn btn-cta" style="padding:11px 26px;font-size:14px;">
+        <i class="fa-regular fa-calendar-check"></i>&nbsp;Agendar cita
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="urgency-pill">
+        <span class="dot"></span>
+        Reclutamiento activo · Guadalajara · Mayo 2026
+      </div>
+      <h1 class="hero-h1">
+        Deja de cambiar<br>tu tiempo por dinero.<br>
+        <span class="accent">Construye tu futuro hoy.</span>
+      </h1>
+      <p class="hero-sub">
+        Be.Sight forma asesores de seguros que ganan desde <strong style="color:white;">$15,000 hasta $80,000+ al mes</strong> — con horarios que tú controlas y mentoría real desde el día uno.
+      </p>
+      <div class="hero-ctas">
+        <a href="#calendly" class="btn btn-cta btn-cta-xl">
+          <i class="fa-solid fa-rocket"></i>&nbsp;Quiero agendar mi entrevista
+        </a>
+        <a href="#vsl" class="btn btn-ghost">
+          <i class="fa-solid fa-circle-play"></i>&nbsp;Ver el video primero
+        </a>
+      </div>
+      <div class="hero-proof">
+        <span class="proof-item"><i class="fa-solid fa-check-circle"></i><span>Sin experiencia previa requerida</span></span>
+        <span class="proof-item"><i class="fa-solid fa-check-circle"></i><span>Formación <strong>100% incluida</strong></span></span>
+        <span class="proof-item"><i class="fa-solid fa-check-circle"></i><span>Respaldo <strong>Seguros Monterrey</strong></span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="chevron"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ========== VSL SECTION ========== -->
+<section id="vsl">
+  <div class="container">
+    <div class="vsl-header reveal">
+      <span class="tag-green">Mira esto primero</span>
+      <h2>Un video que puede cambiar<br>el rumbo de tu carrera</h2>
+      <p>7 minutos. Sin rodeos. Te contamos exactamente cómo funciona y qué puedes esperar.</p>
+    </div>
+
+    <div class="vsl-wrap reveal" id="vslWrap">
+      <!-- THUMBNAIL (reemplaza el src con tu thumbnail real) -->
+      <div class="vsl-thumb" id="vslThumb">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80" alt="Video presentación Be.Sight">
+        <div class="vsl-thumb-overlay">
+          <div class="play-btn">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <span class="vsl-duration"><i class="fa-regular fa-clock"></i>&nbsp; 7 min · La oportunidad Be.Sight</span>
+        </div>
+      </div>
+      <!-- IFRAME (reemplaza YOUR_YOUTUBE_VIDEO_ID con tu ID real de YouTube) -->
+      <div class="vsl-iframe-wrap" id="vslIframe">
+        <iframe
+          id="ytFrame"
+          src=""
+          data-src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID?autoplay=1&rel=0&modestbranding=1"
+          title="Video presentación Be.Sight"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="vsl-cta reveal">
+      <a href="#calendly" class="btn btn-cta btn-cta-xl">
+        <i class="fa-regular fa-calendar-check"></i>&nbsp;Agendar mi entrevista gratuita
+      </a>
+      <p class="vsl-cta-note">
+        <i class="fa-solid fa-lock"></i>&nbsp; Sin costo · Sin presión de ventas · Duración 30 min
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOR WHO ========== -->
+<section id="for-who">
+  <div class="container">
+    <div class="for-who-header reveal">
+      <span class="tag-green">¿Esta oportunidad es para ti?</span>
+      <h2>Sé honesto contigo mismo</h2>
+      <p>Be.Sight no es para todos — y eso está bien. Lee esto antes de agendar.</p>
+    </div>
+
+    <div class="for-who-grid">
+      <div class="fw-card yes reveal">
+        <div class="fw-head">
+          <div class="fw-icon yes"><i class="fa-solid fa-circle-check"></i></div>
+          <h3>Esta oportunidad ES para ti si…</h3>
+        </div>
+        <ul class="fw-list yes">
+          <li><i class="fa-solid fa-check"></i>Buscas ingresos que crezcan sin techo y sin jefe encima</li>
+          <li><i class="fa-solid fa-check"></i>Quieres flexibilidad real de horarios para tu familia</li>
+          <li><i class="fa-solid fa-check"></i>Estás dispuesto a formarte y comprometerte con el proceso</li>
+          <li><i class="fa-solid fa-check"></i>Te motiva ayudar a familias a proteger su patrimonio</li>
+          <li><i class="fa-solid fa-check"></i>Buscas emprender pero con respaldo, no desde cero solo</li>
+        </ul>
+      </div>
+      <div class="fw-card no reveal" style="transition-delay:.15s">
+        <div class="fw-head">
+          <div class="fw-icon no"><i class="fa-solid fa-circle-xmark"></i></div>
+          <h3>NO es para ti si…</h3>
+        </div>
+        <ul class="fw-list no">
+          <li><i class="fa-solid fa-xmark"></i>Buscas un sueldo fijo sin importar tu desempeño</li>
+          <li><i class="fa-solid fa-xmark"></i>No estás dispuesto a invertir tiempo en capacitación</li>
+          <li><i class="fa-solid fa-xmark"></i>Esperas resultados grandes sin esfuerzo consistente</li>
+          <li><i class="fa-solid fa-xmark"></i>Quieres trabajo 100% remoto sin ningún contacto humano</li>
+          <li><i class="fa-solid fa-xmark"></i>Ya tienes carrera consolidada y no quieres cambiar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-cell reveal">
+        <div class="stat-num" data-target="10000">0</div>
+        <div class="stat-label">Familias protegidas</div>
+      </div>
+      <div class="stat-cell reveal" style="transition-delay:.1s">
+        <div class="stat-num" data-target="20" data-suffix="+">0</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div class="stat-cell reveal" style="transition-delay:.2s">
+        <div class="stat-num" data-target="98" data-suffix="%">0</div>
+        <div class="stat-label">Asesores satisfechos</div>
+      </div>
+      <div class="stat-cell reveal" style="transition-delay:.3s">
+        <div class="stat-num" data-prefix="$" data-target="80" data-suffix="K+">0</div>
+        <div class="stat-label">Ingreso mensual máximo logrado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BENEFITS ========== -->
+<section id="benefits">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag-green">¿Por qué Be.Sight?</span>
+      <h2>Todo lo que obtienes al unirte</h2>
+      <p>Sin letra chica. Sin promesas vacías. Esto es lo que Be.Sight pone sobre la mesa desde el día uno.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="b-icon"><i class="fa-solid fa-infinity"></i></div>
+        <h3>Ingresos sin techo</h3>
+        <p>Tus comisiones crecen con tu portafolio. No existe un límite — tú decides cuánto quieres ganar cada mes.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.08s">
+        <div class="b-icon"><i class="fa-solid fa-calendar-check"></i></div>
+        <h3>Horarios que tú controlas</h3>
+        <p>Diseña tu semana a tu medida. Be.Sight te enseña a ser altamente productivo sin sacrificar tu vida personal.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.16s">
+        <div class="b-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>Formación 100% incluida</h3>
+        <p>Capacitación presencial, digital y en campo. Aprenderás de los mejores desde tu primera semana, sin costo extra.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.24s">
+        <div class="b-icon"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+        <h3>Mentoría real, no en papel</h3>
+        <p>Tu mentor camina contigo en cada cita, cada cierre y cada etapa. No eres un número más en una lista.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.32s">
+        <div class="b-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Carrera hasta Director</h3>
+        <p>Plan de crecimiento claro: asesor → supervisor → director. El techo lo pones tú, no la empresa.</p>
+      </div>
+      <div class="benefit-card reveal" style="transition-delay:.40s">
+        <div class="b-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Respaldo Seguros Monterrey</h3>
+        <p>Llevas el nombre de una de las aseguradoras más sólidas y reconocidas de México. Tu credencial te abre puertas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INCOME POTENTIAL ========== -->
+<section id="income">
+  <div class="container">
+    <div class="income-inner">
+      <div class="income-text reveal">
+        <span class="tag-green">Proyección real de ingresos</span>
+        <h2>¿Cuánto puedes ganar<br>en Be.Sight?</h2>
+        <p>
+          Estos rangos son reales, basados en el desempeño de nuestros asesores activos. El ingreso depende de tu esfuerzo, pero el sistema está diseñado para que crezcas rápido.
+        </p>
+        <a href="#calendly" class="btn btn-cta">
+          <i class="fa-regular fa-calendar-check"></i>&nbsp;Quiero conocer mi proyección
+        </a>
+      </div>
+      <div class="income-tiers reveal" style="transition-delay:.2s" id="incomeTiers">
+        <div class="income-tier">
+          <div class="tier-top">
+            <div class="tier-info">
+              <div class="tier-dot"></div>
+              <div>
+                <h4>Asesor Nuevo</h4>
+                <span>Primeros 3–6 meses</span>
+              </div>
+            </div>
+            <div class="tier-amount">$15K–$25K</div>
+          </div>
+          <div class="tier-bar"><div class="tier-bar-fill" data-width="28%"></div></div>
+        </div>
+        <div class="income-tier">
+          <div class="tier-top">
+            <div class="tier-info">
+              <div class="tier-dot"></div>
+              <div>
+                <h4>Asesor Consolidado</h4>
+                <span>6–18 meses</span>
+              </div>
+            </div>
+            <div class="tier-amount">$25K–$50K</div>
+          </div>
+          <div class="tier-bar"><div class="tier-bar-fill" data-width="55%"></div></div>
+        </div>
+        <div class="income-tier">
+          <div class="tier-top">
+            <div class="tier-info">
+              <div class="tier-dot"></div>
+              <div>
+                <h4>Asesor Senior / Supervisor</h4>
+                <span>18 meses en adelante</span>
+              </div>
+            </div>
+            <div class="tier-amount">$50K–$80K+</div>
+          </div>
+          <div class="tier-bar"><div class="tier-bar-fill" data-width="88%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag-green">Historias reales</span>
+      <h2>Lo que dicen los que ya dieron el salto</h2>
+      <p>Personas como tú que decidieron apostar por algo diferente.</p>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card reveal">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="big-q">"</div>
+        <p class="testi-text">Llegué sin experiencia en seguros y con miedo al cambio. Dos años después soy supervisora de zona y mis ingresos triplicaron lo que ganaba antes. Be.Sight me dio las herramientas, pero sobre todo la confianza para creer en mí misma.</p>
+        <div class="testi-author">
+          <div class="t-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Sofía González">
+          </div>
+          <div class="t-info">
+            <strong>Sofía González</strong>
+            <span>Supervisora de Zona · 2 años en Be.Sight</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.12s">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="big-q">"</div>
+        <p class="testi-text">Venía del mundo corporativo buscando independencia real. En Be.Sight encontré un modelo donde tú controlas tu agenda y tus resultados. En el primer año ya superé lo que ganaba en 10 años de oficina.</p>
+        <div class="testi-author">
+          <div class="t-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Carlos Ramírez">
+          </div>
+          <div class="t-info">
+            <strong>Carlos Ramírez</strong>
+            <span>Asesor Senior · 3 años en Be.Sight</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.24s">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="big-q">"</div>
+        <p class="testi-text">Lo que más valoro es que nunca estás sola. Desde el primer día tienes mentor, equipo y un plan concreto. El acompañamiento es real, no solo en papel. Aquí construyes carrera y amistades para toda la vida.</p>
+        <div class="testi-author">
+          <div class="t-avatar">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Valeria Mendoza">
+          </div>
+          <div class="t-info">
+            <strong>Valeria Mendoza</strong>
+            <span>Asesora Patrimonial · 18 meses en Be.Sight</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section id="process">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag-green">El proceso es simple</span>
+      <h2>3 pasos para empezar</h2>
+      <p>Desde que agendas hasta que estás generando ingresos, todo está diseñado para que avances rápido.</p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="p-step">
+        <div class="p-node">1</div>
+        <h3>Agenda tu entrevista</h3>
+        <p>Elige el día y hora que más te convengan en el calendario de abajo. Es gratis y sin compromiso.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-node">2</div>
+        <h3>Videollamada de 30 min</h3>
+        <p>Conocemos tu perfil, te presentamos el modelo con números reales y respondemos todo sin presión.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-node"><i class="fa-solid fa-star" style="font-size:1.1rem;"></i></div>
+        <h3>Empiezas con tu equipo</h3>
+        <p>Capacitación, mentoría y tu primer semana en campo. En Be.Sight no esperas — construyes desde hoy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag-green">Preguntas frecuentes</span>
+      <h2>Lo que todos preguntan<br>antes de agendar</h2>
+      <p>Seamos directos con las dudas más comunes.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <div class="faq-q">
+          <span>¿Necesito experiencia previa en seguros?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          No. De hecho, muchos de nuestros mejores asesores llegaron sin ninguna experiencia en el sector. Lo que importa es tu actitud, disposición para aprender y ganas de crecer. Be.Sight te da toda la formación técnica desde cero.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>¿Es comisión al 100%? ¿No hay sueldo base?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          El modelo es basado en comisiones, igual que cualquier negocio propio. Pero a diferencia del empleo, tus comisiones no tienen techo y se acumulan con el tiempo (comisiones recurrentes). En la entrevista te mostramos proyecciones reales con números de asesores actuales.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>¿Cuántas horas tengo que trabajar?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          Tú decides tu horario. La mayoría de nuestros asesores trabajan entre 4 y 8 horas diarias. No hay registro de entrada, no hay jefe revisando. Sí existe una estructura de actividades semanales que te ayuda a mantenerte productivo, especialmente al inicio.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>¿Tengo que invertir dinero para empezar?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          No. La capacitación, el material y la mentoría son sin costo. Sí existe un proceso de certificación ante la CNSF (obligatorio por regulación), cuyo costo y proceso te explicamos en detalle en la entrevista.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>¿A quién le vendo? ¿Tengo que venderle a mi familia?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          Tu red de contactos es un punto de partida natural, pero Be.Sight te enseña técnicas de prospección para construir tu cartera de clientes sin depender solo de familia y amigos. Con el tiempo, los referidos de clientes satisfechos se convierten en tu principal fuente de negocio.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>¿Cuánto tarda la entrevista?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          30 minutos. Es una conversación por videollamada, sin presión y sin compromiso. Puedes hacerla desde tu casa. Si decides no continuar, no pasa nada — te agradecemos el tiempo y listo.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CALENDLY ========== -->
+<section id="calendly">
+  <div class="container">
+    <div class="calendly-header reveal">
+      <span class="tag-green">Último paso</span>
+      <h2>Agenda tu <span class="accent">Entrevista Gratuita</span><br>de 30 minutos</h2>
+      <p>Elige el día y hora que más te convengan. En la llamada te mostramos proyecciones reales, resolvemos tus dudas y decidimos juntos si Be.Sight es para ti.</p>
+      <div class="calendly-trust">
+        <span class="c-trust"><i class="fa-solid fa-lock"></i> Sin costo ni compromiso</span>
+        <span class="c-trust"><i class="fa-solid fa-clock"></i> Solo 30 minutos</span>
+        <span class="c-trust"><i class="fa-solid fa-video"></i> Por videollamada</span>
+        <span class="c-trust"><i class="fa-solid fa-check-circle"></i> Responde al instante</span>
+      </div>
+    </div>
+
+    <div class="calendly-widget-wrap reveal">
+      <!-- Calendly inline widget begin -->
+      <!-- Reemplaza TU-USUARIO-CALENDLY/entrevista-besight con tu enlace real de Calendly -->
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/TU-USUARIO-CALENDLY/entrevista-besight?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=5BBF5B"
+        style="min-width:320px;height:700px;"
+      ></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly inline widget end -->
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo">
+        <svg class="bs-icon" viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M28 2C15 14 3 29 3 47C3 62 13 73 28 73C43 73 53 62 53 47C53 29 41 14 28 2Z" fill="#5BBF5B"/>
+          <rect x="23.5" y="71" width="9" height="11" rx="4.5" fill="#5BBF5B"/>
+          <path d="M37,43 A10.5,10.5 0 1,1 19,43" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <circle cx="31" cy="57" r="4.2" fill="white"/>
+        </svg>
+        <div class="bs-wordmark">
+          <strong>be<em>.sight</em></strong>
+          <span class="bs-tagline">Planear · Asegurar · Vivir</span>
+        </div>
+      </a>
+      <p class="footer-copy">© 2026 Be.Sight · Promotoría Seguros Monterrey New York Life · Guadalajara</p>
+      <div class="footer-links">
+        <a href="besight.html">Sitio principal</a>
+        <a href="mailto:contacto@besight.mx">Contacto</a>
+        <a href="https://www.instagram.com/besightsefuvision" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a
+  href="https://wa.me/523314174968?text=Hola%20Be.Sight%2C%20vi%20la%20p%C3%A1gina%20de%20reclutamiento%20y%20me%20interesa%20conocer%20m%C3%A1s."
+  target="_blank" rel="noopener"
+  class="wa-float"
+  title="WhatsApp Be.Sight"
+  aria-label="Contactar por WhatsApp"
+>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- Sticky Mobile CTA -->
+<div id="sticky-cta">
+  <div class="sc-text">
+    <strong>¡Solo 5 cupos disponibles!</strong>
+    Agenda tu entrevista gratuita
+  </div>
+  <a href="#calendly" class="btn btn-cta">
+    <i class="fa-regular fa-calendar-check"></i>&nbsp;Agendar
+  </a>
+</div>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+  /* --- Nav scroll effect --- */
+  const topBar = document.getElementById('top-bar');
+  window.addEventListener('scroll', () => {
+    topBar.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  /* --- Scroll reveal --- */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* --- Counter animation --- */
+  function runCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '';
+    const steps = 60, duration = 1800;
+    const inc = target / steps;
+    let current = 0;
+    const iv = setInterval(() => {
+      current += inc;
+      if (current >= target) { current = target; clearInterval(iv); }
+      el.textContent = prefix + Math.floor(current).toLocaleString('es-MX') + suffix;
+    }, duration / steps);
+  }
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.stat-num').forEach(runCounter);
+        statsObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  const statsEl = document.getElementById('stats');
+  if (statsEl) statsObs.observe(statsEl);
+
+  /* --- Income tier bars --- */
+  const tiersObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.tier-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width;
+        });
+        tiersObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const tiersEl = document.getElementById('incomeTiers');
+  if (tiersEl) tiersObs.observe(tiersEl);
+
+  /* --- VSL play button --- */
+  const vslThumb = document.getElementById('vslThumb');
+  const vslWrap  = document.getElementById('vslWrap');
+  const ytFrame  = document.getElementById('ytFrame');
+  if (vslThumb) {
+    vslThumb.addEventListener('click', () => {
+      ytFrame.src = ytFrame.dataset.src;
+      vslWrap.classList.add('playing');
+    });
+  }
+
+  /* --- FAQ accordion --- */
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* --- Countdown timer (to end of current month) --- */
+  function updateCountdown() {
+    const now = new Date();
+    const end = new Date(now.getFullYear(), now.getMonth() + 1, 1, 0, 0, 0);
+    const diff = end - now;
+    if (diff <= 0) { document.getElementById('countdown').textContent = '¡Hoy!'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('countdown').textContent =
+      `${d}d ${pad(h)}:${pad(m)}:${pad(s)}`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* --- Sticky mobile CTA visibility --- */
+  const stickyCta = document.getElementById('sticky-cta');
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 600) {
+      stickyCta.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    }
+  }, { passive: true });
+</script>
+
+</body>
+</html>
